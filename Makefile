@@ -35,6 +35,8 @@ rootfs:
 create:
 	@echo "### remove existing plugin ${PLUGIN_NAME}:${PLUGIN_TAG} if exists"
 	@docker plugin rm -f ${PLUGIN_NAME}:${PLUGIN_TAG} || true
+	@echo "### mkdir /var/lib/ndnfs"
+	@mkdir -p /var/lib/ndnfs
 	@echo "### create new plugin ${PLUGIN_NAME}:${PLUGIN_TAG} from ./plugin"
 	@docker plugin create ${PLUGIN_NAME}:${PLUGIN_TAG} ./plugin
 
