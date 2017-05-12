@@ -2,12 +2,14 @@ PLUGIN_NAME=nexenta/nexentaedge-nfs-plugin
 PLUGIN_TAG=stable
 
 
-all: clean docker rootfs create enable
+all: clean docker rootfs create enable clean
 
 
 clean:
 	@echo "### rm ./plugin"
 	@rm -rf ./plugin
+	@echo "### rm ./ndnfs"
+	@rm -rf ./ndnfs
 
 docker:
 	@echo "### docker build: builder image"
